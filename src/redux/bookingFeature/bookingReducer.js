@@ -12,6 +12,8 @@ const bookingReducer = (state = bookingState, action) => {
             return booking.id !== action.payload.bookingId;
         })
         return updatedBookings;
+    } else {
+        return state;
     }
 }
 

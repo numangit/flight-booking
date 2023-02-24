@@ -1,13 +1,31 @@
 import React from 'react';
+import store from '../redux/store';
+import { bookFlight } from '../redux/bookingFeature/actionCreator';
+import { useSelector } from 'react-redux';
 
 const BookingForm = () => {
+    const bookingStateLength = useSelector((state) => state.length);
 
+    // function to handle bookings input
+    const bookingHandler = (e) => {
+        e.preventDefault();
 
+        const bookingForm = e.target;
+        // const bookingId = bookingStateLength + 1;
+        const destinationFrom = bookingForm.from.value;
+        const destinationTo = bookingForm.to.value;
+        const journeyDate = bookingForm.date.value;
+        const guests = bookingForm.guests.value;
+        const ticketClass = bookingForm.ticketClass.value;
+        const bookingData = { destinationFrom, destinationTo, journeyDate, guests, ticketClass };
+        console.log(bookingStateLength);
+        store.dispatch(bookFlight(bookingData));
+    };
 
     return (
         <div className="mt-[160px] mx-4 md:mt-[160px] relative">
             <div className="bg-white rounded-md max-w-6xl w-full mx-auto">
-                <form className="first-hero lws-inputform">
+                <form onSubmit={bookingHandler} className="first-hero lws-inputform">
                     {/* <!-- From --> */}
                     <div className="des-from">
                         <p>Destination From</p>

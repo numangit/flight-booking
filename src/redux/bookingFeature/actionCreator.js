@@ -1,7 +1,6 @@
-import BOOKING from './actionType';
-import DELETEBOOKING from './actionType';
+import { BOOKING, DELETEBOOKING } from "./actionType";
 
-export const booking = (newBookingData) => {
+export const bookFlight = (newBookingData) => {
     return {
         type: BOOKING,
         payload: newBookingData,
