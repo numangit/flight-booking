@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import './App.css';
 import BookingForm from './components/BookingForm';
@@ -9,11 +8,6 @@ function App() {
   const bookingsState = useSelector((state) => state);
   console.log(bookingsState);
 
-  // useEffect(() => {
-
-  // }, [bookingsState.length])
-
-
   return (
     <div>
       <Header />
@@ -21,7 +15,6 @@ function App() {
       {
         bookingsState.length > 0 && <PreviewSection />
       }
-
     </div>
   );
 }
