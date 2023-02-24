@@ -11,11 +11,13 @@ const BookingForm = () => {
         e.preventDefault();
 
         const bookingForm = e.target;
+        const date = (bookingForm.date.value).split("-");
+
         const bookingData = {
-            id: bookingStateLength + 1,
+            id: Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36),
             destinationFrom: bookingForm.from.value,
             destinationTo: bookingForm.to.value,
-            journeyDate: bookingForm.date.value,
+            journeyDate: [date[2], date[1], date[0]].join("-"),
             guests: bookingForm.guests.value,
             ticketClass: bookingForm.ticketClass.value,
         };
