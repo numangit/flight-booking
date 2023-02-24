@@ -1,25 +1,26 @@
 import React from 'react';
-import store from '../redux/store';
 import { bookFlight } from '../redux/bookingFeature/actionCreator';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const BookingForm = () => {
     const bookingStateLength = useSelector((state) => state.length);
+    const dispatch = useDispatch();
 
     // function to handle bookings input
     const bookingHandler = (e) => {
         e.preventDefault();
 
         const bookingForm = e.target;
-        const bookingId = bookingStateLength + 1;
-        const destinationFrom = bookingForm.from.value;
-        const destinationTo = bookingForm.to.value;
-        const journeyDate = bookingForm.date.value;
-        const guests = bookingForm.guests.value;
-        const ticketClass = bookingForm.ticketClass.value;
-        const bookingData = { bookingId, destinationFrom, destinationTo, journeyDate, guests, ticketClass };
+        const bookingData = {
+            id: bookingStateLength + 1,
+            destinationFrom: bookingForm.from.value,
+            destinationTo: bookingForm.to.value,
+            journeyDate: bookingForm.date.value,
+            guests: bookingForm.guests.value,
+            ticketClass: bookingForm.ticketClass.value,
+        };
         console.log(bookingData);
-        store.dispatch(bookFlight(bookingData));
+        dispatch(bookFlight(bookingData));
     };
 
     return (

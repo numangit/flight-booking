@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import store from '../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteBooking } from '../redux/bookingFeature/actionCreator';
 
 const PreviewSection = () => {
 
     const bookings = useSelector((state) => state);
+    const dispatch = useDispatch();
     const [bookingsState] = useState(bookings);
 
     //delete button handler
     const deleteHandler = (id) => {
-        store.dispatch(deleteBooking(id));
+        dispatch(deleteBooking(id));
     }
 
     return (
@@ -28,9 +28,9 @@ const PreviewSection = () => {
                 </thead>
                 <tbody className="divide-y divide-gray-300/20" id="lws-previewBooked">
                     {
-                        bookingsState.map((booking) => {
+                        bookingsState.map((booking, i) => {
                             return (
-                                <tr className="lws-bookedTable text-black">
+                                <tr key={i} className="lws-bookedTable text-black">
                                     <td className="px-6 py-4">
                                         <div className="flex items-center space-x-3">
                                             <p className="lws-bookedFrom">{booking?.destinationFrom}</p>
