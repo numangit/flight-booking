@@ -1,10 +1,10 @@
 import BOOKING from './actionType';
 import DELETEBOOKING from './actionType';
 
-export const booking = (bookingData) => {
+export const booking = (newBookingData) => {
     return {
         type: BOOKING,
-        payload: bookingData,
+        payload: newBookingData,
     }
 };
 
