@@ -11,14 +11,14 @@ const BookingForm = () => {
         e.preventDefault();
 
         const bookingForm = e.target;
-        // const bookingId = bookingStateLength + 1;
+        const bookingId = bookingStateLength + 1;
         const destinationFrom = bookingForm.from.value;
         const destinationTo = bookingForm.to.value;
         const journeyDate = bookingForm.date.value;
         const guests = bookingForm.guests.value;
         const ticketClass = bookingForm.ticketClass.value;
-        const bookingData = { destinationFrom, destinationTo, journeyDate, guests, ticketClass };
-        console.log(bookingStateLength);
+        const bookingData = { bookingId, destinationFrom, destinationTo, journeyDate, guests, ticketClass };
+        console.log(bookingData);
         store.dispatch(bookFlight(bookingData));
     };
 
