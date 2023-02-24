@@ -20,9 +20,7 @@ const PreviewSection = () => {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-300/20" id="lws-previewBooked">
-                    {
-                        bookings.map((booking) => <BookingCard booking={booking} />)
-                    }
+                    {bookings.map((booking) => <BookingCard key={booking.id} booking={booking} />)}
                 </tbody>
             </table>
         </div>

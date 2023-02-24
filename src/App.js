@@ -5,8 +5,8 @@ import Header from './components/Header';
 import PreviewSection from './components/PreviewSection';
 
 function App() {
+
   const bookingsState = useSelector((state) => state);
-  console.log(bookingsState);
 
   return (
     <div>

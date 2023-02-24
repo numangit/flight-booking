@@ -12,7 +12,7 @@ const BookingCard = ({ booking }) => {
     }
 
     return (
-        <tr key={booking.id} className="lws-bookedTable text-black">
+        <tr className="lws-bookedTable text-black">
             <td className="px-6 py-4">
                 <div className="flex items-center space-x-3">
                     <p className="lws-bookedFrom">{booking?.destinationFrom}</p>

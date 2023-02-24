@@ -1,5 +1,6 @@
 import { BOOKING, DELETEBOOKING } from "./actionType";
 
+//initial booking state
 const bookingState = [];
 
 const bookingReducer = (state = bookingState, action) => {
@@ -7,12 +8,10 @@ const bookingReducer = (state = bookingState, action) => {
         case BOOKING:
             const updatedNewBookings = [...state];
             updatedNewBookings.length < 3 && updatedNewBookings.push(action.payload);
-            console.log(updatedNewBookings);
             return updatedNewBookings;
 
         case DELETEBOOKING:
             const updatedBookings = state.filter(booking => booking.id !== action.payload)
-            console.log(updatedBookings);
             return updatedBookings;
 
         default:

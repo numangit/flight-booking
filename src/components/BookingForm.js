@@ -3,6 +3,7 @@ import { bookFlight } from '../redux/bookingFeature/actionCreator';
 import { useDispatch } from 'react-redux';
 
 const BookingForm = () => {
+
     const dispatch = useDispatch();
 
     // function to handle bookings input
@@ -20,7 +21,7 @@ const BookingForm = () => {
             guests: bookingForm.guests.value,
             ticketClass: bookingForm.ticketClass.value,
         };
-        console.log(bookingData);
+
         dispatch(bookFlight(bookingData));
     };
 
