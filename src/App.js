@@ -9,9 +9,9 @@ function App() {
   const bookingsState = useSelector((state) => state);
   console.log(bookingsState);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [bookingsState.length])
+  // }, [bookingsState.length])
 
 
   return (

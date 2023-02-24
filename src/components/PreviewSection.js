@@ -6,7 +6,7 @@ const PreviewSection = () => {
 
     const bookings = useSelector((state) => state);
     const dispatch = useDispatch();
-    const [bookingsState] = useState(bookings);
+    console.log(bookings);
 
     //delete button handler
     const deleteHandler = (id) => {
@@ -28,7 +28,7 @@ const PreviewSection = () => {
                 </thead>
                 <tbody className="divide-y divide-gray-300/20" id="lws-previewBooked">
                     {
-                        bookingsState.map((booking, i) => {
+                        bookings.map((booking, i) => {
                             return (
                                 <tr key={i} className="lws-bookedTable text-black">
                                     <td className="px-6 py-4">
