@@ -1,9 +1,8 @@
 import React from 'react';
 import { bookFlight } from '../redux/bookingFeature/actionCreator';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const BookingForm = () => {
-    const bookingStateLength = useSelector((state) => state.length);
     const dispatch = useDispatch();
 
     // function to handle bookings input
