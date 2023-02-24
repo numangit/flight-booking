@@ -1,15 +1,14 @@
 import React from 'react';
 import { bookFlight } from '../redux/bookingFeature/actionCreator';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const BookingForm = () => {
-
+    const bookings = useSelector((state) => state);
     const dispatch = useDispatch();
 
     // function to handle bookings input
     const bookingHandler = (e) => {
         e.preventDefault();
-
         const bookingForm = e.target;
         const date = (bookingForm.date.value).split("-");
 
@@ -93,7 +92,7 @@ const BookingForm = () => {
                         </div>
                     </div>
 
-                    <button className="addCity" type="submit" id="lws-addCity">
+                    <button className="addCity" type="submit" id="lws-addCity" disabled={bookings.length === 3 && true}>
                         <svg width="15px" height="15px" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                             <path strokeLinecap="round" strokeinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>

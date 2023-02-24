@@ -7,7 +7,7 @@ const bookingReducer = (state = bookingState, action) => {
     switch (action.type) {
         case BOOKING:
             const updatedNewBookings = [...state];
-            updatedNewBookings.length < 3 && updatedNewBookings.push(action.payload);
+            updatedNewBookings.push(action.payload);
             return updatedNewBookings;
 
         case DELETEBOOKING:
